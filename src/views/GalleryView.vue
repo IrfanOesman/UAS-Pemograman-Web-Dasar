@@ -7,14 +7,14 @@
     </div>
 
     <div class="gallery-container">
-      <div 
-        v-for="(image, index) in galleryImages" 
-        :key="index" 
+      <div
+        v-for="(image, index) in galleryImages"
+        :key="index"
         class="gallery-item"
         :class="'item-' + (index + 1)"
       >
         <div class="image-box">
-          <img :src="image.url" :alt="image.title">
+          <img :src="image.url" :alt="image.title" />
           <div class="image-overlay">
             <span class="category">{{ image.category }}</span>
             <h4>{{ image.title }}</h4>
@@ -24,25 +24,31 @@
     </div>
 
     <div class="gallery-footer">
-      <p>Punya momen indah di Hutan Bambu? Tag kami di Instagram <strong>@hutanbambubekasi</strong></p>
-      <a target='_blank' href="https://www.instagram.com/hutanbambubekasi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="btn btn-secondary">Lihat Instagram Kami</a>
+      <p>
+        Punya momen indah di Hutan Bambu? Tag kami di Instagram <strong>@hutanbambubekasi</strong>
+      </p>
+      <a
+        target="_blank"
+        href="https://www.instagram.com/hutanbambubekasi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        class="btn btn-secondary"
+        >Lihat Instagram Kami</a
+      >
     </div>
   </section>
 </template>
-
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const galleryImages = ref([
-  { title: 'Selamat Datang', category: 'Suasana', url: '/images/SelamatDatang-HutanBambu.jpg' },
-  { title: 'Jembatan Gantung', category: 'Ikonik', url: '/images/Jembatan_cleanup.jpg' },
-  { title: 'Taman Bambu', category: 'Suasana', url: '/images/Taman-Bambu-di-Bekasi.jpg' },
-  { title: 'Tempat Makan', category: 'Kuliner', url: '/images/Tempat-Makan.jpg' },
-  { title: 'Ketenangan', category: 'Suasana', url: '/images/Aktivitas-Wisata-di-Taman-Bambu-Bekasi.jpg' },
-  { title: 'Ketenangan Air', category: 'Suasana', url: '/images/Sungai.jpeg' },
-  { title: 'Saung', category: 'Suasana', url: '/images/Saung.jpg' }
-  
-]);
+  // Hapus '/' di depan kata images
+  { title: 'Selamat Datang', category: 'Suasana', url: 'images/welcome.jpg' },
+  { title: 'Jembatan Gantung', category: 'Ikonik', url: 'images/jembatan.jpg' },
+  { title: 'Taman Bambu', category: 'Suasana', url: 'images/taman.jpg' },
+  { title: 'Tempat Makan', category: 'Kuliner', url: 'images/kuliner.jpg' },
+  { title: 'Ketenangan', category: 'Suasana', url: 'images/aktivitas.jpg' },
+  { title: 'Ketenangan Air', category: 'Suasana', url: 'images/sungai.jpeg' },
+  { title: 'Saung', category: 'Suasana', url: 'images/saung.jpg' },
+])
 </script>
 
 <style scoped>
@@ -76,9 +82,16 @@ const galleryImages = ref([
 }
 
 /* Membuat variasi ukuran grid agar terlihat seperti masonry */
-.item-1 { grid-column: span 2; grid-row: span 2; }
-.item-4 { grid-row: span 2; }
-.item-5 { grid-column: span 2; }
+.item-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.item-4 {
+  grid-row: span 2;
+}
+.item-5 {
+  grid-column: span 2;
+}
 
 .image-box {
   width: 100%;
@@ -150,7 +163,10 @@ const galleryImages = ref([
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 200px;
   }
-  .item-1, .item-5 { grid-column: span 2; }
+  .item-1,
+  .item-5 {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 600px) {
@@ -158,6 +174,11 @@ const galleryImages = ref([
     grid-template-columns: 1fr;
     grid-auto-rows: 250px;
   }
-  .item-1, .item-4, .item-5 { grid-column: span 1; grid-row: span 1; }
+  .item-1,
+  .item-4,
+  .item-5 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
 }
 </style>
